@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "SuperMarioWorld";
+  src: url(./fonts/SuperMarioWorld.ttf);
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-image: url(./images/bonusgameroom_checkerwallpaper.png);
+  background-repeat: repeat;
+}
+
+/*256x, 222y */
+#drum-machine {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 768px;
+  height: 666px;
+  background-image: url(./images/bonusgameroom1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+#display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 460px;
+  height: 400px;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.drum-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 30%;
+}
+
+.drum-pad {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 60px;
+  font-family: "SuperMarioWorld";
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#displayelement {
+  font-family: "SuperMarioWorld";
+  font-size: 20px;
+  padding: 3px;
+  box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
+}
+
+#oneUp {
+  background-image: url(./images/blueblock.png);
+}
+
+#coin {
+  background-image: url(./images/greenexcblock.png);
+}
+
+#dragonCoin {
+  background-image: url(./images/stoneblock.png);
+}
+
+#jump {
+  background-image: url(./images/yellowexcblock.png);
+}
+
+#midwayGate {
+  background-image: url(./images/brownblock.png);
+}
+
+#ridingYoshi {
+  background-image: url(./images/redexcblock.png);
+}
+
+#stompBounce {
+  background-image: url(./images/greenstarblock.png);
+}
+
+#thwomp {
+  background-image: url(./images/yellowblock.png);
+}
+
+#tongueAttack {
+  background-image: url(./images/blueexcblock.png);
+}
