@@ -1,63 +1,8 @@
 import React from "react";
 import "./App.css";
+import keyPads from "./paddata.js";
 
 let letters = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
-let keyPads = [
-  {
-    id: "oneUp",
-    title: "one up",
-    key: "Q",
-    file: "./sounds/one_up.wav"
-  },
-  {
-    id: "coin",
-    title: "coin",
-    key: "W",
-    file: "./sounds/coin.wav"
-  },
-  {
-    id: "dragonCoin",
-    title: "dragon coin",
-    key: "E",
-    file: "./sounds/dragon_coin.wav"
-  },
-  {
-    id: "jump",
-    title: "jump",
-    key: "A",
-    file: "./sounds/jump.wav"
-  },
-  {
-    id: "midwayGate",
-    title: "midway gate",
-    key: "S",
-    file: "./sounds/midway_gate.wav"
-  },
-  {
-    id: "ridingYoshi",
-    title: "riding yoshi",
-    key: "D",
-    file: "./sounds/riding_yoshi.wav"
-  },
-  {
-    id: "stompBounce",
-    title: "stomp bounce",
-    key: "Z",
-    file: "./sounds/stomp_bounce.wav"
-  },
-  {
-    id: "thwomp",
-    title: "thwomp",
-    key: "X",
-    file: "./sounds/thwomp.wav"
-  },
-  {
-    id: "tongueAttack",
-    title: "tongue attack",
-    key: "C",
-    file: "./sounds/yoshi_tongue_attack.wav"
-  }
-];
 
 const DrumPad = props => {
   return (
@@ -70,6 +15,7 @@ const DrumPad = props => {
       {props.keypad.key}
       <audio
         className="clip"
+        // ref={(input) => {this.audioRef = input}}
         src={props.keypad.file}
         id={props.keypad.key}
       ></audio>
@@ -86,11 +32,13 @@ class App extends React.Component {
   }
 
   handleClick(event) {
-    let aud = new Audio();
-    aud.src = event.target.childNodes[3].play();
-    document.getElementById("displayelement").textContent = this.soundTitle(
-      event.target
-    );
+    console.log(event.target.childNodes[1]);
+    event.target.childNodes[1].play();
+    // let aud = new Audio();
+    // aud.src = event.target.childNodes[3].play();
+    // document.getElementById("displayelement").textContent = this.soundTitle(
+    // event.target
+    // );
   }
 
   soundTitle(pad) {
@@ -125,11 +73,17 @@ class App extends React.Component {
 function handleKeyPress(event) {
   let key = event.key.toUpperCase();
   let letterIndex = letters.indexOf(key);
-  let name = keyPads[letterIndex].id;
-  let el = document.getElementById(name);
-  el.childNodes[3].play();
-  document.getElementById("displayelement").textContent =
-    keyPads[letterIndex].title;
+  let name = "";
+  try {
+    name = keyPads[letterIndex].id;
+    let el = document.getElementById(name);
+    console.log(el);
+    el.childNodes[3].play();
+    // document.getElementById("displayelement").textContent =
+    // keyPads[letterIndex].title;
+  } catch (error) {
+    //do nothing
+  }
 }
 
 document.addEventListener("keydown", handleKeyPress);

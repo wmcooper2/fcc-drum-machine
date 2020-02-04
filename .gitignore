@@ -10,6 +10,7 @@
 
 # production
 /build
+/drum-machine
 
 # misc
 .DS_Store
